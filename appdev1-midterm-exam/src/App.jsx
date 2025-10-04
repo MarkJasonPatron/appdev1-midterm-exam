@@ -1,12 +1,16 @@
 import './App.css'
+import { useState } from "react";
 
 function App() {
-  const [count, setCount] = useState(0)
+    const [toggleModal, setToggleModal] = useState(false);
 
+    function handleToggleModal() {
+      setToggleModal(!toggleModal);
+    }
   return (
     <>
       {/* ***** Preloader Start ***** */}
-      <div id="js-preloader" className="js-preloader">
+      {/* <div id="js-preloader" className="js-preloader">
         <div className="preloader-inner">
           <span className="dot" />
           <div className="dots">
@@ -15,7 +19,7 @@ function App() {
             <span />
           </div>
         </div>
-      </div>
+      </div> */}
       {/* ***** Preloader End ***** */}
       {/* ***** Header Area Start ***** */}
       <header
@@ -29,7 +33,7 @@ function App() {
               <nav className="main-nav">
                 {/* ***** Logo Start ***** */}
                 <a href="index.html" className="logo">
-                  <img src="assets/images/logo.png" alt="Chain App Dev" />
+                  <img src="/assets/images/logo.png" alt="Chain App Dev" />
                 </a>
                 {/* ***** Logo End ***** */}
                 {/* ***** Menu Start ***** */}
@@ -53,7 +57,7 @@ function App() {
                   </li>
                   <li>
                     <div className="gradient-button">
-                      <a id="modal_trigger" href="#modal">
+                      <a id="modal_trigger" href="#modal" onClick={handleToggleModal}>
                         <i className="fa fa-sign-in-alt" /> Sign In Now
                       </a>
                     </div>
@@ -69,10 +73,28 @@ function App() {
         </div>
       </header>
       {/* ***** Header Area End ***** */}
-      <div id="modal" className="popupContainer" style={{ display: "none" }}>
+      <div
+        id="modal"
+        className="popupContainer"
+        style={
+          toggleModal
+          ? {
+            display: "block",
+            position: "fixed",
+            opacity: 1,
+            zIndex: 11000,
+            left: "50%",
+            marginLeft: "-165px",
+            top: 100,
+            }
+          : {
+              display: "none",
+            }
+          }
+        >
         <div className="popupHeader">
           <span className="header_title">Login</span>
-          <span className="modal_close">
+          <span className="modal_close" onClick={handleToggleModal}>
             <i className="fa fa-times" />
           </span>
         </div>
@@ -219,7 +241,7 @@ function App() {
                     data-wow-duration="1s"
                     data-wow-delay="0.5s"
                   >
-                    <img src="assets/images/slider-dec.png" alt="" />
+                    <img src="/assets/images/slider-dec.png" alt="" />
                   </div>
                 </div>
               </div>
@@ -239,7 +261,7 @@ function App() {
                 <h4>
                   Amazing <em>Services &amp; Features</em> for you
                 </h4>
-                <img src="assets/images/heading-line-dec.png" alt="" />
+                <img src="/assets/images/heading-line-dec.png" alt="" />
                 <p>
                   If you need the greatest collection of HTML templates for your
                   business, please visit{" "}
@@ -336,7 +358,7 @@ function App() {
                 <h4>
                   About <em>What We Do</em> &amp; Who We Are
                 </h4>
-                <img src="assets/images/heading-line-dec.png" alt="" />
+                <img src="/assets/images/heading-line-dec.png" alt="" />
                 <p>
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                   eismod tempor incididunt ut labore et dolore magna.
@@ -389,7 +411,7 @@ function App() {
             </div>
             <div className="col-lg-6">
               <div className="right-image">
-                <img src="assets/images/about-right-dec.png" alt="" />
+                <img src="/assets/images/about-right-dec.png" alt="" />
               </div>
             </div>
           </div>
@@ -403,7 +425,7 @@ function App() {
                 <h4>
                   Check What <em>The Clients Say</em> About Our App Dev
                 </h4>
-                <img src="assets/images/heading-line-dec.png" alt="" />
+                <img src="/assets/images/heading-line-dec.png" alt="" />
                 <p>
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                   eismod tempor incididunt ut labore et dolore magna.
@@ -533,7 +555,7 @@ function App() {
                               <div className="row">
                                 <div className="col-lg-12">
                                   <div className="client-content">
-                                    <img src="assets/images/quote.png" alt="" />
+                                    <img src="/assets/images/quote.png" alt="" />
                                     <p>
                                       “Lorem ipsum dolor sit amet, consectetur
                                       adpiscing elit, sed do eismod tempor idunte ut
@@ -544,7 +566,7 @@ function App() {
                                   </div>
                                   <div className="down-content">
                                     <img
-                                      src="assets/images/client-image.jpg"
+                                      src="/assets/images/client-image.jpg"
                                       alt=""
                                     />
                                     <div className="right-content">
@@ -563,7 +585,7 @@ function App() {
                               <div className="row">
                                 <div className="col-lg-12">
                                   <div className="client-content">
-                                    <img src="assets/images/quote.png" alt="" />
+                                    <img src="/assets/images/quote.png" alt="" />
                                     <p>
                                       “CTO, Lorem ipsum dolor sit amet, consectetur
                                       adpiscing elit, sed do eismod tempor idunte ut
@@ -574,7 +596,7 @@ function App() {
                                   </div>
                                   <div className="down-content">
                                     <img
-                                      src="assets/images/client-image.jpg"
+                                      src="/assets/images/client-image.jpg"
                                       alt=""
                                     />
                                     <div className="right-content">
@@ -593,7 +615,7 @@ function App() {
                               <div className="row">
                                 <div className="col-lg-12">
                                   <div className="client-content">
-                                    <img src="assets/images/quote.png" alt="" />
+                                    <img src="/assets/images/quote.png" alt="" />
                                     <p>
                                       “May, Lorem ipsum dolor sit amet, consectetur
                                       adpiscing elit, sed do eismod tempor idunte ut
@@ -604,7 +626,7 @@ function App() {
                                   </div>
                                   <div className="down-content">
                                     <img
-                                      src="assets/images/client-image.jpg"
+                                      src="/assets/images/client-image.jpg"
                                       alt=""
                                     />
                                     <div className="right-content">
@@ -623,7 +645,7 @@ function App() {
                               <div className="row">
                                 <div className="col-lg-12">
                                   <div className="client-content">
-                                    <img src="assets/images/quote.png" alt="" />
+                                    <img src="/assets/images/quote.png" alt="" />
                                     <p>
                                       “Lorem ipsum dolor sit amet, consectetur
                                       adpiscing elit, sed do eismod tempor idunte ut
@@ -634,7 +656,7 @@ function App() {
                                   </div>
                                   <div className="down-content">
                                     <img
-                                      src="assets/images/client-image.jpg"
+                                      src="/assets/images/client-image.jpg"
                                       alt=""
                                     />
                                     <div className="right-content">
@@ -653,7 +675,7 @@ function App() {
                               <div className="row">
                                 <div className="col-lg-12">
                                   <div className="client-content">
-                                    <img src="assets/images/quote.png" alt="" />
+                                    <img src="/assets/images/quote.png" alt="" />
                                     <p>
                                       “Mark, Lorem ipsum dolor sit amet, consectetur
                                       adpiscing elit, sed do eismod tempor idunte ut
@@ -664,7 +686,7 @@ function App() {
                                   </div>
                                   <div className="down-content">
                                     <img
-                                      src="assets/images/client-image.jpg"
+                                      src="/assets/images/client-image.jpg"
                                       alt=""
                                     />
                                     <div className="right-content">
@@ -694,7 +716,7 @@ function App() {
                 <h4>
                   We Have The Best Pre-Order <em>Prices</em> You Can Get
                 </h4>
-                <img src="assets/images/heading-line-dec.png" alt="" />
+                <img src="/assets/images/heading-line-dec.png" alt="" />
                 <p>
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                   eismod tempor incididunt ut labore et dolore magna.
@@ -706,7 +728,7 @@ function App() {
                 <span className="price">$12</span>
                 <h4>Standard Plan App</h4>
                 <div className="icon">
-                  <img src="assets/images/pricing-table-01.png" alt="" />
+                  <img src="/assets/images/pricing-table-01.png" alt="" />
                 </div>
                 <ul>
                   <li>Lorem Ipsum Dolores</li>
@@ -726,7 +748,7 @@ function App() {
                 <span className="price">$25</span>
                 <h4>Business Plan App</h4>
                 <div className="icon">
-                  <img src="assets/images/pricing-table-01.png" alt="" />
+                  <img src="/assets/images/pricing-table-01.png" alt="" />
                 </div>
                 <ul>
                   <li>Lorem Ipsum Dolores</li>
@@ -746,7 +768,7 @@ function App() {
                 <span className="price">$66</span>
                 <h4>Premium Plan App</h4>
                 <div className="icon">
-                  <img src="assets/images/pricing-table-01.png" alt="" />
+                  <img src="/assets/images/pricing-table-01.png" alt="" />
                 </div>
                 <ul>
                   <li>Lorem Ipsum Dolores</li>
@@ -883,7 +905,7 @@ function App() {
               <div className="footer-widget">
                 <h4>About Our Company</h4>
                 <div className="logo">
-                  <img src="assets/images/white-logo.png" alt="" />
+                  <img src="/assets/images/white-logo.png" alt="" />
                 </div>
                 <p>
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -910,6 +932,14 @@ function App() {
           </div>
         </div>
       </footer>
+      <div
+        id="lean_overlay"
+        style={
+          toggleModal
+        ? { display: "block", opacity: "0.6" }
+        : { display: "none" }
+        }
+      />
       {/* Scripts */}
     </>
 
